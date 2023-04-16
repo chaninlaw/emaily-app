@@ -11,11 +11,9 @@ function App() {
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/auth/google"
         >
-          Hi there
+          Sign In With Google
         </a>
       </header>
     </div>
