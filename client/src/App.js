@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from './actions';
 
-function App() {
+import Header from './components/Header';
+import Landing from './components/Landing';
+
+const Dashboard = () => <h2>Dashboard</h2>
+const SurveyNew = () => <h2>SurveyNew</h2>
+
+const App = ({ fetchUser }) => {
+
+  useEffect(() => {
+    fetchUser();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="/auth/google"
-        >
-          Sign In With Google
-        </a>
-      </header>
+    <div className="container">
+      <BrowserRouter>
+        <div>
+          <Header />
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/surveys" component={Dashboard} />
+          <Route exact path="/surveys/new" component={SurveyNew} />
+        </div>
+      </BrowserRouter>
     </div>
   );
-}
+};
 
-export default App;
+export default connect(null, actions)(App);
