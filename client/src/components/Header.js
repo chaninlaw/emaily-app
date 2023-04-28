@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import Payments from './Payments';
+import React from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import Payments from "./Payments";
 
 const Header = ({ auth }) => {
   const renderAuth = () => {
@@ -9,31 +9,33 @@ const Header = ({ auth }) => {
       case null:
         return;
       case false:
-        return <li><a href="/auth/google">Login With Google</a></li>;
+        return (
+          <li>
+            <a href="/auth/google">Login With Google</a>
+          </li>
+        );
       default:
         return (
           <>
-            <li><Payments /></li>
-            <li
-              style={{ margin: '0 10px' }}
-            >
-              Credits: {auth.credits}
-            </li >
-            <li><a href="/api/logout">Logout</a></li>
+            <li>
+              <Payments />
+            </li>
+            <li style={{ margin: "0 10px" }}>Credits: {auth.credits}</li>
+            <li>
+              <a href="/api/logout">Logout</a>
+            </li>
           </>
         );
     }
-  }
+  };
 
   return (
     <nav>
       <div className="nav-wrapper">
-        <Link to={auth ? '/surveys' : '/'} className="left brand-logo">
+        <Link to={auth ? "/surveys" : "/"} className="left brand-logo">
           Emaily
         </Link>
-        <ul className="right">
-          {renderAuth()}
-        </ul>
+        <ul className="right">{renderAuth()}</ul>
       </div>
     </nav>
   );
