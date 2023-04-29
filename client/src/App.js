@@ -13,8 +13,7 @@ const App = ({ fetchUser }) => {
 
   useEffect(() => {
     fetchUser();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [fetchUser]);
 
   return (
     <div className="container">
