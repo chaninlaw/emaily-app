@@ -1,3 +1,4 @@
+// Comfirm Survey Form before sending
 import React from 'react';
 import { connect } from 'react-redux';
 import formFields from './formFields';

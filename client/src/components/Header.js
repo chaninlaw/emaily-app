@@ -30,8 +30,8 @@ const Header = ({ auth }) => {
   };
 
   return (
-    <nav>
-      <div className="nav-wrapper">
+    <nav className="nav-wrapper">
+      <div className="container">
         <Link to={auth ? "/surveys" : "/"} className="left brand-logo">
           Emaily
         </Link>

@@ -1,3 +1,4 @@
+// Handling SurveyNew and SurveyFormReview
 import React, { useState } from 'react';
 import SurveyForm from './SurveyForm';
 import SurveyFormReview from './SurveyFormReview';
@@ -25,7 +26,7 @@ const SurveyNew = () => {
   };
 
   return (
-    <div>
+    <div className='container'>
       {renderContent()}
     </div>
   );
