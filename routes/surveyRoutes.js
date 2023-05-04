@@ -26,11 +26,13 @@ module.exports = app => {
     const events = _.chain(req.body)
       .map(({ email, url }) => {
         const match = p.test(new URL(url).pathname);
-        if (match) ({
-          email,
-          surveyId: match.surveyId,
-          choice: match.choice
-        });
+        if (match) {
+          return {
+            email,
+            surveyId: match.surveyId,
+            choice: match.choice
+          }
+        };
       })
       .compact()
       .uniqBy('email', 'surveyId')
